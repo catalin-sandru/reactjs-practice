@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import Header from './component/header';
-import FriendsContainer from './component/component1';
+import Header from './component/header/header';
+import Navbar from './component/navbar/navbar';
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Mos Craciun</h1>
-        {/* <p>bcdjsbcjs</p> */}
         <Header />
-        <FriendsContainer />
+        <Navbar />
       </div>
     );
   }

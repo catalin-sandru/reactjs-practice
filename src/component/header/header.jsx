@@ -1,45 +1,19 @@
-import React, { Component } from 'react';
-class header__wrapper extends Component {
-  constructor(props) {
-    super(props) 
+import React, { Component} from 'react'
+class Navbar extends Component {
 
-    this.state= {
-      username: 'santa claus',
-      nickname: 'fat guy in red'
+  constructor() {
+    super()
+    this.state = {
+      title: 'Welcome'
     }
-
-    this.handleChange = this.handleChange.bind(this)
   }
-  handleChange(e, f) {
-    this.setState({
-      username: e.target.value
-    });
-    this.setState({
-      nickname: e.target.value
-      
-    })
-  };
-
   render() {
     return(
-      <div>
-        Hello {this.state.username} <br />
-        Change Name:
-        <input 
-          type='text'
-          value={this.state.username}
-          onChange={this.handleChange}
-          />
-        <br />
-        <br />
-        Nickname {this.state.nickname} <br />
-        Change Nickname:
-        <input 
-          type="text"
-          value={this.state.nickname}
-          onChange={this.handleChange} />
-      </div>
+      <h1>
+        {this.state.title}
+      </h1>
     )
   }
-};
-export default header__wrapper
+}
+
+export default Navbar;
