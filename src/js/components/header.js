@@ -1,10 +1,16 @@
 import React, { Component} from 'react'
 
 class Header extends Component {
+  handleChange(e) {
+    const title = e.target.value
+    this.props.changeTitle(title)
+  }
   render() {
-    console.log(this.props)
       return(
-        <h1>{this.props.title}</h1>
+        <div>
+          <h1>{this.props.title}</h1>
+          <input value={this.props.title} onChange={this.handleChange.bind(this)}/>
+        </div>
       )
   }
 }

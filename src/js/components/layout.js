@@ -7,15 +7,16 @@ class Layout extends Component {
     super()
     this.state = {
       title: 'Welcome'
-    }
+    };
+
+}
+  changeTitle(title) {
+    this.setState({title})
   }
   render() {
-    setTimeout(() => {
-      this.setState({title: 'Welcome Catalin'})
-    }, 2000)
       return(
         <div>
-          <Header title={this.state.title}/>
+          <Header changeTitle={this.changeTitle.bind(this)} title={this.state.title}/>
           <Footer />
         </div>
       )
