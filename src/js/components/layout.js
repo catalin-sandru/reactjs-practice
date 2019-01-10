@@ -1,17 +1,21 @@
 import React, { Component} from 'react'
 import Header from './header'
+import Footer from './footer'
 
 class Layout extends Component {
+  constructor() {
+    super()
+    this.state = {name: 'Catalin'}
+  }
   render() {
-    var list = [
-      <Header />,
-      <Header />,
-      <Header />
-    ]
+    setTimeout(() => {
+      this.setState({name: "Sandru"})
+    }, 1000)
       return(
         <div>
-          {list}
+          {this.state.name}
           <Header />
+          <Footer />
         </div>
       )
   }
