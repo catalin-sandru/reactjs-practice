@@ -3,11 +3,19 @@ import Header from './header'
 import Footer from './footer'
 
 class Layout extends Component {
+  constructor() {
+    super()
+    this.state = {
+      title: 'Welcome'
+    }
+  }
   render() {
-    const title = 'Welcome Catalin';
+    setTimeout(() => {
+      this.setState({title: 'Welcome Catalin'})
+    }, 2000)
       return(
         <div>
-          <Header title={title}/>
+          <Header title={this.state.title}/>
           <Footer />
         </div>
       )
