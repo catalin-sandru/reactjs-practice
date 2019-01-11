@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
-import Layout from './js/components/layout'
+import MessageList from './components/index'
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      messages: Dummy_Data
+    }
+  }
   render() {
     return (
       <div className="App">
-        <Layout />
+        <MessageList messages={this.state.messages}/>
       </div>
     );
   }
