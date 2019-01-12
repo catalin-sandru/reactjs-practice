@@ -17,24 +17,38 @@ function randomColor() {
 }
 
 class App extends Component {
-  onSendMessage = (message) => {
-    const messages = this.state.messages
-    messages.push({
-      text: message,
-      member: this.state.member
+  constructor() {
+    super()
+    this.drone = new window.Scaledrone("rbQHVAPEdv3c1Yky", {
+      data: this.state.member
+    });
+    this.drone.on('open', error => {
+      if (error) {
+        return console.error(error);
+      }
+      const member = {...this.state.member};
+      member.id = this.drone.clientId
+      this.setState({member});
     })
-    this.setState({messages: messages})
+    
+    room.on('data', (data, member) => {
+      const messages = this.state.messages;
+      messages.push({member, text: data});
+      this.setState({messages})
+    });
+    const room = this.drone.subscribe("observable-room");
+  };
+
+  
+
+  onSendMessage = (message) => {
+    this.drone.publish({
+      room: "observable-room",
+      message
+    })
   }
   state = {
-    messages: [
-      {
-        text: "this is a test message",
-        member: {
-          color: "blue",
-          username: "mos craciun"
-        }
-      }
-    ],
+    messages: [],
 
     member: {
       username: randomName(),
