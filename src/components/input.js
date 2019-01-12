@@ -12,7 +12,7 @@ class Input extends Component {
   onSubmit(e) {
     e.preventDefault();
     this.setState.setState({text: ""});
-    this.props.onsendMessage(this.state.text);
+    this.props.onSendMessage(this.state.text);
   }
 
   render() {
